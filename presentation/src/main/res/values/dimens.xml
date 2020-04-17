@@ -1,0 +1,13 @@
+<resources>
+    <!-- Common dimens -->
+    <dimen name="match_constraint">0dp</dimen>
+
+    <!-- Window -->
+    <dimen name="window_padding">10dp</dimen>
+
+    <!-- Cards -->
+    <dimen name="card_height">80dp</dimen>
+    <dimen name="card_bottom_margin">5dp</dimen>
+    <dimen name="card_padding">5dp</dimen>
+
+</resources>

@@ -25,6 +25,20 @@ android {
         versionName = Version.name
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
+
+    flavorDimensions("style")
+    productFlavors {
+        create("red") {
+            setDimension("style")
+            applicationIdSuffix = ".red"
+        }
+
+        create("blue") {
+            setDimension("style")
+            applicationIdSuffix = ".blue"
+        }
+    }
+
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false

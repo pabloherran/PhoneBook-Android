@@ -63,12 +63,21 @@ class ContactsViewFragment :
             permissionManager.handleReadContactsPermissionGranted()
         }
 
+        if (requestCode == ContextPermissionManager.PERMISSIONS_REQUEST_CALL_PHONE &&
+            grantResults.firstOrNull() == PackageManager.PERMISSION_GRANTED
+        ) {
+            permissionManager.handleCallPhonePermissionGranted()
+        }
+
     }
 
     private fun setUpRecycler() {
         rvContactList.layoutManager =
             LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
-        rvContactList.adapter = ContactsAdapter(mutableListOf())
+        rvContactList.adapter =
+            ContactsAdapter(mutableListOf(), itemListener = { viewModel.onActionPhoneClick(it) })
+
+
     }
 
 }

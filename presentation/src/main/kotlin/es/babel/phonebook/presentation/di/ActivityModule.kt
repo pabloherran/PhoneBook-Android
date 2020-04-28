@@ -17,6 +17,6 @@ fun generateActivityModule(activity: BaseActivity) = Kodein.Module(name = "Activ
 
     bind<MainNavigator>() with singleton { MainNavigator(instance()) }
 
-    bind<ContactsNavigator>() with singleton { ContactsNavigator(instance()) }
+    bind<ContactsNavigator>() with singleton { ContactsNavigator(instance(), instance()) }
 
 }

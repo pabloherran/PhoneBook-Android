@@ -8,4 +8,10 @@ interface PermissionManager {
 
     fun handleReadContactsPermissionGranted()
 
+    fun isCallPhonePermissionGranted(): Boolean
+
+    fun requestCallPhonePermission(callback: () -> Unit)
+
+    fun handleCallPhonePermissionGranted()
+
 }

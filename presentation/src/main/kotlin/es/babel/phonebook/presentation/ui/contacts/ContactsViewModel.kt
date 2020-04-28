@@ -3,6 +3,8 @@ package es.babel.phonebook.presentation.ui.contacts
 import es.babel.phonebook.domain.manager.PermissionManager
 import es.babel.phonebook.domain.usecase.contacts.GetAllContactsUseCase
 import es.babel.phonebook.presentation.base.BaseViewModel
+import es.babel.phonebook.presentation.model.contacts.ContactPresentationModel
+
 
 class ContactsViewModel(
     private val getAllContactsUseCase: GetAllContactsUseCase
@@ -18,12 +20,20 @@ class ContactsViewModel(
 
     override fun onStartFirstTime(statePreloaded: Boolean) {
         checkReadContactPermissionAndGetThem()
+        checkCallPhonePermission()
     }
 
     private fun checkReadContactPermissionAndGetThem() {
         if (!permissionManager.isReadContactsPermissionGranted()) {
             permissionManager.requestReadContactsPermission { getContacts() }
         } else getContacts()
+    }
+
+    private fun checkCallPhonePermission(): Boolean {
+        if (!permissionManager.isCallPhonePermissionGranted()) {
+            permissionManager.requestCallPhonePermission { }
+            return false
+        } else return true
     }
 
     private fun getContacts() {
@@ -36,6 +46,20 @@ class ContactsViewModel(
                 )
             }
         }
+    }
+
+    fun onActionPhoneClick(contactPresentationModel: ContactPresentationModel) {
+        if (checkCallPhonePermission()) {
+            navigate(
+                ContactsNavigator.Navigation.Call(
+                    ContactsViewState(
+                        phoneList = listOf(),
+                        phoneNumber = contactPresentationModel.phoneNumber
+                    )
+                )
+            )
+        }
+
     }
 
 }

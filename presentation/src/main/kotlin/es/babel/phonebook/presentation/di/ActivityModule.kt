@@ -2,7 +2,9 @@ package es.babel.phonebook.presentation.di
 
 import androidx.navigation.NavController
 import es.babel.phonebook.presentation.base.BaseActivity
+import es.babel.phonebook.presentation.ui.champion.ChampionNavigator
 import es.babel.phonebook.presentation.ui.contacts.ContactsNavigator
+import es.babel.phonebook.presentation.ui.home.HomeNavigator
 import es.babel.phonebook.presentation.ui.main.MainNavigator
 import org.kodein.di.Kodein
 import org.kodein.di.generic.bind
@@ -16,6 +18,8 @@ fun generateActivityModule(activity: BaseActivity) = Kodein.Module(name = "Activ
     bind<NavController>() with singleton { activity.navController }
 
     bind<MainNavigator>() with singleton { MainNavigator(instance()) }
+
+    bind<HomeNavigator>() with singleton {HomeNavigator(instance()) }
 
     bind<ContactsNavigator>() with singleton { ContactsNavigator(instance()) }
 

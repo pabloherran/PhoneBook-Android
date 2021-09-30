@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="@dimen/common_padding_default">
+
+
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nombre"
+        android:padding="@dimen/common_padding_default"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/tvHabilidad1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Habilidad 1"
+        android:padding="@dimen/common_padding_min"
+        app:layout_constraintTop_toBottomOf="@id/tvName"
+        />
+
+    <TextView
+        android:id="@+id/tvHabilidad2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Habilidad 2"
+        android:padding="@dimen/common_padding_min"
+        app:layout_constraintTop_toBottomOf="@id/tvHabilidad1"
+        />
+
+    <TextView
+        android:id="@+id/tvHabilidad3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Habilidad 3"
+        android:padding="@dimen/common_padding_min"
+        app:layout_constraintTop_toBottomOf="@id/tvHabilidad2"
+        />
+
+    <TextView
+        android:id="@+id/tvHabilidad4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Habilidad 4"
+        android:padding="@dimen/common_padding_min"
+        app:layout_constraintTop_toBottomOf="@id/tvHabilidad3"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
